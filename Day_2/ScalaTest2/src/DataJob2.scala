@@ -18,4 +18,7 @@ object DataJob2 {
     return concomitate
   }
 
+  def trySomething(a : String,b : String): Unit ={
+
+  }
 }
