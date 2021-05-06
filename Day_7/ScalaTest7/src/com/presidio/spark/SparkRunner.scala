@@ -11,7 +11,8 @@ object SparkRunner {
     sparkConf.setMaster("local[*]")
 
     val sparkContext = new SparkContext(sparkConf)
-    val textFileRDD = sparkContext.textFile("/Users/umeshmoorthy/scala/testData/auth.csv")
+    //val textFileRDD = sparkContext.textFile("/Users/umeshmoorthy/scala/testData/auth.csv")
+    val textFileRDD = sparkContext.textFile("hdfs://localhost:9000/testData/auth.csv")
 
     //val countedElements = textFileRDD.count()
     //println(countedElements)
@@ -28,11 +29,17 @@ object SparkRunner {
     //val savedObjectFile = textFileRDD.saveAsObjectFile("/Users/umeshmoorthy/scala/savedObjects")
 
 
+    println("================= Text FIle From HDFS =================")
     val mappedRDD = textFileRDD.map(each => {
       val columns = each.split(",")
       (columns(3), columns(5))
     })
-    mappedRDD.foreach(each => println(each))
+   // mappedRDD.foreach(each => println(each))
+
+    println("================= Whole Text FIle From HDFS =================")
+    val wholeTextFileRDD = sparkContext.wholeTextFiles("hdfs://localhost:9000/testData/auth.csv")
+    wholeTextFileRDD.foreach(each => println(each._1))
+    wholeTextFileRDD.foreach(each => println(each._2))
 
     sparkContext.stop()
 
