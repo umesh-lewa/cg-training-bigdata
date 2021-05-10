@@ -8,8 +8,29 @@ https://spark.apache.org/docs/2.2.0/sql-programming-guide.html
 bin
 format
 
+bin
+./hdfs namenode -format
+/tmp/hadoop-umeshmoorthy/dfs/name;
+
 sbin
 ./start-dfs.sh
+
+https://stackoverflow.com/questions/11889261/datanode-process-not-running-in-hadoop
+// Debug Solution
+
+1
+
+In case of Mac os(Pseudo-distributed mode):
+
+Open terminal
+
+Stop dfs. 'sbin/stop-all.sh'.
+cd /tmp
+rm -rf hadoop*
+Navigate to hadoop directory. Format the hdfs. bin/hdfs namenode -format
+sbin/start-dfs.sh
+
+//
 
 umeshmoorthy@Umeshs-MacBook-Pro ~ % jps          
 54449 
@@ -33,3 +54,16 @@ bin
 ./spark-submit --name CodaDataJOB --master spark://Umeshs-MacBook-Pro.local:7077 --deploy-mode client --class com.coda.dataprocessing.ClientMain /Users/umeshmoorthy/code/gitStuff/myStuff/cg-training-bigdata/Day_9/ScalaTest9/target/ScalaTest9-1.0-SNAPSHOT.jar
 
 https://spark.apache.org/docs/2.2.0/sql-programming-guide.html
+
+Avro, Orc
+
+https://www.thecodebuzz.com/sample-avro-file-example/
+
+https://blog.clairvoyantsoft.com/big-data-file-formats-3fb659903271
+
+https://hadoopsters.com/2015/09/27/benefits-of-the-orc-file-format-in-hadoop/
+
+https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC
+Spark Stream
+
+nc -lk 8888
