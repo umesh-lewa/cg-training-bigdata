@@ -1,0 +1,27 @@
+
+
+CREATE TABLE um_test_db.um_test_tb(id INT,col1 STRING,col2 STRING)
+
+export HDFS_NAMENODE_USER="root"
+export HDFS_DATANODE_USER="root"
+export HDFS_SECONDARYNAMENODE_USER="root"
+export YARN_RESOURCEMANAGER_USER="root"
+export YARN_NODEMANAGER_USER="root"
+
+Chin Feynman  3:37 PM
+HDFS_DATANODE_USER=root
+HADOOP_SECURE_DN_USER=hdfs 
+HDFS_NAMENODE_USER=root 
+HDFS_SECONDARYNAMENODE_USER=root 
+
+parquet, avro and orc
+
+docker run -p 8080:8080 -p 8081:8081 -p 9870:9870 -p 9864:9864 -p 9866:9866 -p 9867:9867 -p 9868:9868 -p 9000:9000 bd-env
+
+COPY /data/CountSparkJob.jar /usr/bin/bd/testData/
+COPY /data/auth.csv /usr/bin/bd/testData/
+
+docker build -t bd-env .
+docker run -v ${PWD}:/usr/bin/bd/fs -p 8080:8080 -p 8081:8081 -p 9870:9870 -p 9864:9864 -p 9866:9866 -p 9867:9867 -p 9868:9868 -p 9000:9000 bd-env
+
+./spark-submit --name CodaDataJOB --master spark://eb0988bbd19c:7077 --deploy-mode client --class com.presidio.spark.SparkRunner /usr/bin/bd/ScalaTest8-1.0-SNAPSHOT.jar
