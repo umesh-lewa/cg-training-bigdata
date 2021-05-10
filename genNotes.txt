@@ -1,0 +1,35 @@
+
+https://stackoverflow.com/questions/34429287/saving-files-in-spark
+
+https://stackoverflow.com/questions/11593374/permission-denied-at-hdfs
+
+https://spark.apache.org/docs/2.2.0/sql-programming-guide.html
+
+bin
+format
+
+sbin
+./start-dfs.sh
+
+umeshmoorthy@Umeshs-MacBook-Pro ~ % jps          
+54449 
+56614 DataNode
+56503 NameNode
+56760 SecondaryNameNode
+56878 Jps
+
+http://localhost:9870/
+
+sbin
+./start-master.sh
+
+http://localhost:8080/
+Spark Master at spark://Umeshs-MacBook-Pro.local:7077
+
+bin
+./spark-class org.apache.spark.deploy.worker.Worker spark://Umeshs-MacBook-Pro.local:7077
+
+bin
+./spark-submit --name CodaDataJOB --master spark://Umeshs-MacBook-Pro.local:7077 --deploy-mode client --class com.coda.dataprocessing.ClientMain /Users/umeshmoorthy/code/gitStuff/myStuff/cg-training-bigdata/Day_9/ScalaTest9/target/ScalaTest9-1.0-SNAPSHOT.jar
+
+https://spark.apache.org/docs/2.2.0/sql-programming-guide.html
