@@ -11,14 +11,14 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$USER_HOME$/scala/spark-2.4.7-bin-hadoop2.7/jars" />
+          <root url="file://$USER_HOME$/bigData/spark/spark-2.4.7-bin-hadoop2.7/jars" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$USER_HOME$/scala/spark-2.4.7-bin-hadoop2.7/jars" />
+          <root url="file://$USER_HOME$/bigData/spark/spark-2.4.7-bin-hadoop2.7/jars" />
         </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/scala/spark-2.4.7-bin-hadoop2.7/jars" recursive="false" />
-        <jarDirectory url="file://$USER_HOME$/scala/spark-2.4.7-bin-hadoop2.7/jars" recursive="false" type="SOURCES" />
+        <jarDirectory url="file://$USER_HOME$/bigData/spark/spark-2.4.7-bin-hadoop2.7/jars" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/bigData/spark/spark-2.4.7-bin-hadoop2.7/jars" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>
