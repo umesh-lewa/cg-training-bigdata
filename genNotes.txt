@@ -71,3 +71,5 @@ nc -lk 8888
 https://kontext.tech/column/spark/530/scala-filter-spark-dataframe-columns-with-none-or-null-values
 
 https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html
+
+https://github.com/hamzanasirr/Kafka-producer-csv-scala/blob/master/KafkaCsvProducer.scala
