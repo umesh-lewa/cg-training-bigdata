@@ -1,5 +1,9 @@
 package com.presidio.case2
 
+import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerRecord, RecordMetadata}
+
+import java.util.Properties
+
 object CodaProducer {
 
   def main(args:Array[String]): Unit ={
@@ -29,17 +33,28 @@ object CodaProducer {
     props.put("batch.size","445")
     props.put("compression.codec","1")
     props.put("request.required.acks","-1")
-    //props.put("partitioner.class", "com.presidio.datascience.fileprocessing.KafkaUserCustomPartitioner")
+    props.put("partitioner.class", "com.presidio.case2.KafkaUserCustomPartitioner")
+
     val callback = new Callback {
       override def onCompletion(recordMetadata: RecordMetadata, e: Exception) = {
+        if(e==null){
+          println("producer record added to topic successfully....!!!")
+        }else{
+          println("producer record not added to topic....!!!")
+          println(e.printStackTrace())
+        }
         println("LEO - " + recordMetadata.offset())
         println(recordMetadata.topic())
         println(recordMetadata.partition())
       }
     }
+
     val producer = new KafkaProducer[String, String](props)
-    val data = new ProducerRecord[String, String]("MONGODB-TOPIC", "coda-cold", "coda-hot")
+
+    val data = new ProducerRecord[String, String]("QURE-DATA-LINEAGE", "QURE-coda-cold", "coda-hot")
+
     producer.send(data, callback)
+
     producer.flush()
 
   }
